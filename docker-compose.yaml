@@ -5,11 +5,15 @@ services:
   # ports:
   # - 3000:3000
   app:
+    depends_on:
+      - mongodb
     container_name: nodeapp
     build: .
     ports:
       - 3000:3000
+
   mongodb:
+    container_name: mongodb
     image: mongo:4.2.1
     ports:
       - 27017:27017
@@ -20,6 +24,7 @@ services:
       - mongo-data:/data/db
   
   mongo-express:
+    container_name: mongo-express
     depends_on:
       - mongodb
     image: mongo-express:0.49.0
