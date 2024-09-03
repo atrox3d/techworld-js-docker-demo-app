@@ -4,6 +4,11 @@ services:
   # image: ${docker-registry}/my-app:1.0
   # ports:
   # - 3000:3000
+  app:
+    container_name: nodeapp
+    build: .
+    ports:
+      - 3000:3000
   mongodb:
     image: mongo:4.2.1
     ports:
